@@ -788,9 +788,10 @@ def roll_dice(game_id):
     # Check property at new position
     property = Property.query.filter_by(game_id=game_id, position=new_position).first()
     response = {
-        'dice': [dice1, dice2],
-        'new_position': new_position,
-        'is_double': double
+      'dice': [dice1, dice2],
+      'new_position': new_position,
+      'is_double': double,
+      'owner_id': property.owner_id if property else None
     }
     
     if property:
